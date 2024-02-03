@@ -1,31 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long long
+#define MOD 1000000007
+
 bool isprime(int n)
 {
-    for (int i = 2; i * i < n; i++)
+    bool f = true;
+    for (int i = 2; i * i <= n; i++)
     {
         if (n % i == 0)
         {
-            return false;
+            f = false;
+            break;
         }
     }
-    return true;
+    return f;
 }
 
-void vid1()
+void seive()
 {
-    // Divisors
-    int n;
-    cin >> n;
-    cout << isprime(n);
-}
+    int n = 100;
+    vector<bool> seiveof(n + 1, 1);
+    seiveof[0] = seiveof[1] = 0;
 
+    for (int i = 2; i <= n; i++)
+    {
+        if (seiveof[i] == 0)
+            continue;
+        for (int j = i * i; j <= n; j += i)
+        {
+            seiveof[j] = 0;
+        }
+    }
+    for (int i = 0; i <= n; i++)
+    {
+        cout << i << " " << seiveof[i] << "\n";
+    }
+}
 signed main()
 {
-
-    vid1(); // Basic Number Theory
-
-    // vid2();
-
-    // vid3();
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int _t = 1;
+    // cin >> _t;
+    while (_t--)
+        // cout << isprime(2);
+        seive();
 }
