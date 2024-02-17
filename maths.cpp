@@ -37,14 +37,29 @@ void seive()
         cout << i << " " << seiveof[i] << "\n";
     }
 }
+int binpoww(int a, int x)
+{
+    if (x == 0)
+        return 1;
+    if (x % 2)
+    {
+        int res = binpoww(a, (x - 1) / 2);
+        return res * res * a;
+    }
+    else
+    {
+        int res = binpoww(a, x / 2);
+        return res * res;
+    }
+}
 signed main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    int _t = 1;
-    // cin >> _t;
-    while (_t--)
-        // cout << isprime(2);
-        seive();
+
+    // cout << isprime(2);
+    // seive();
+    int n = binpoww(2, 3);
+    cout << n;
 }
