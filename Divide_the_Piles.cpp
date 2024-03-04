@@ -15,14 +15,13 @@ void solve()
         cin >> d;
         // v.push_back(d);
         gcd = __gcd(gcd, d);
-        cout<<gcd<<" ";
     }
 
     // for (int i = 0; i < n; i++)
     // {
     //     gcd = __gcd(gcd, v[i]);
     // }
-    if (gcd > 1)    
+    if (gcd > 1)
     {
         cout << "Yes" << endl;
     }
